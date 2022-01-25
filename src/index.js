@@ -3,8 +3,6 @@ module.exports = function check(str, bracketsConfig) {
     return false;
   }
 
-  let array = str.split("");
-
   let open = ['(', '[', '{','|', '1', '3','5','7','8'];
   let pairs = {
     [')']: '(',
@@ -19,6 +17,7 @@ module.exports = function check(str, bracketsConfig) {
   };
   let stack = [];
 for (let i = 0; i < str.length; i++){
+ 
   let current = str[i];
   if (open.includes(current)){
     stack.push(current);
@@ -32,9 +31,9 @@ for (let i = 0; i < str.length; i++){
       stack.pop();
     }
     else{
-      return false;
+      return true;
     }
   }
 }
-return stack.length === 0;
+return stack.length == 0;
 }
